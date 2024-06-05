@@ -3,3 +3,7 @@ const getSteamUsers = async () => {
     const myJson = await response.json();
     return myJson;
 }
+
+const searchUser = async() => {
+    
+}

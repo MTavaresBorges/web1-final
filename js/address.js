@@ -8,7 +8,7 @@ const preencherFormalario = (address) => {
 }
 
 const pesquisarCep = async () => {
-    const cep = document.getElementById('cep').value;
+    const cep = document.getElementById('zipcode').value;
     const url = `http://viacep.com.br/ws/${cep}/json/`;
 
     const dados = await fetch(url);
@@ -16,5 +16,5 @@ const pesquisarCep = async () => {
     preencherFormalario(address);
 }
 
-document.getElementById('cep')
+document.getElementById('zipcode')
         .addEventListener('focusout', pesquisarCep);

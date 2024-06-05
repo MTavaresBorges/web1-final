@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/eldenring.css">
+</head>
+<body>
+    <div id="navbar">
+        <header>
+            <nav>
+                <ul class="navbar-list">
+                    <li><a href="/index.html" class="active">Home</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/weapons.html">Weapons</a></li>
+                    <li><a href="/create.html">Create</a></li>
+                    <li><a href="/update.html">Update</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <main>
+        <div class="form-container">
+            <div class="form">
+                <h2>Type an Elden Ring weapon:</h2>
+                <form id="item-form" action="#" method="POST">
+                    <fieldset>
+                        <label for="item">Item:</label>
+                        <input type="text" id="item" placeholder="Type an Elden Ring weapon">
+                    </fieldset>
+                    <button type="submit" class="form-button">Search</button>
+                </form>
+            </div>
+            <div class="item-card" id="item-card" style="display: none;">
+                <h2 class="card-h2">Weapon</h2>
+                <img id = "item-image" class="item-image" src="">
+                <p id="item-name"><span class ="item-span">Name: </span></p>
+                <p id="item-category">Weapon Class: </p>
+                <p id="item-description">Description: </p>
+            
+                <h3>Attack: </h3>
+                <ul id="physical-damage">Physical Damage: </ul>
+                <ul id="magic-damage">Magic Damage: </ul>
+                <ul id="fire-damage">Fire Damage: </ul>
+                <ul id="lightning-damage">Lightning Damage: </ul>
+                <ul id="holy-damage">Holy Damage: </ul>
+                <ul id="critical-damage">Critical Damage: </ul>
+            
+                <h3>Defence: </h3>
+                <ul id="physical-resistance">Physical Resistance: </ul>
+                <ul id="magic-resistance">Magic Resistance: </ul>
+                <ul id="fire-resistance">Fire Resistance: </ul>
+                <ul id="lightning-resistance">Lightning Resistance: </ul>
+                <ul id="holy-resistance">Holy Resistance: </ul>
+                <ul id="boost">Boost: </ul>
+            </div>
+        </div>
+    </main>
+    <script src="/js/eldenring-items.js" type="module" defer></script>
+    <script src="/js/address.js" type="module" defer></script>
+</body>
+    <script src="/js/address.js" type="module" defer></script>
+</html>
