@@ -36,17 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('holy-resistance').textContent = `Holy Resistance: ${item.defence[4].amount}`;
                 document.getElementById('boost').textContent = `Boost: ${item.defence[5].amount}`;
 
-                // Show the item card
                 itemCard.style.display = 'block';
             } else {
                 alert('Item not found.');
-                // Hide the item card if item is not found
                 itemCard.style.display = 'none';
             }
         } catch (error) {
             console.error('Error fetching item data:', error);
             alert('An error occurred while fetching the item data.');
-            // Hide the item card if an error occurs
+            
             itemCard.style.display = 'none';
         }
     });
