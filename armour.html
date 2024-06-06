@@ -25,7 +25,7 @@
         </header>
     </div>
     <main>
-        <div class="form-container">
+        <div class="container">
             <div class="form">
                 <h2>Type an Elden Ring armour:</h2>
                 <form id="item-form" action="#" method="POST">
@@ -37,27 +37,29 @@
                 </form>
             </div>
             <div class="item-card" id="item-card" style="display: none;">
-                <h2 class="card-h2">Weapon</h2>
-                <img id = "item-image" class="item-image" src="">
+                <h2 class="card-h2">Armour</h2>
+                <img id="item-image" class="item-image" src="">
                 <p id="item-name"><span class ="item-span">Name: </span></p>
-                <p id="item-category">Weapon Class: </p>
+                <p id="item-category">Armour Class: </p>
                 <p id="item-description">Description: </p>
+                <p id="item-weight">Weight: </p>
+
+                <h3>Damage Negation: </h3>
+                <ul id="physical-negation">Physical Negation: </ul>
+                <ul id="strike-negation">Strike Negation: </ul>
+                <ul id="slash-negation">Slash Negation: </ul>
+                <ul id="pierce-negation">Pierce Negation: </ul>
+                <ul id="magic-negation">Magic Negation: </ul>
+                <ul id="fire-negation">Fire Negation: </ul>
+                <ul id="lightning-negation">Lightning Negation: </ul>
+                <ul id="holy-negation">Holy Negation: </ul>
             
-                <h3>Attack: </h3>
-                <ul id="physical-damage">Physical Damage: </ul>
-                <ul id="magic-damage">Magic Damage: </ul>
-                <ul id="fire-damage">Fire Damage: </ul>
-                <ul id="lightning-damage">Lightning Damage: </ul>
-                <ul id="holy-damage">Holy Damage: </ul>
-                <ul id="critical-damage">Critical Damage: </ul>
-            
-                <h3>Defence: </h3>
-                <ul id="physical-resistance">Physical Resistance: </ul>
-                <ul id="magic-resistance">Magic Resistance: </ul>
-                <ul id="fire-resistance">Fire Resistance: </ul>
-                <ul id="lightning-resistance">Lightning Resistance: </ul>
-                <ul id="holy-resistance">Holy Resistance: </ul>
-                <ul id="boost">Boost: </ul>
+                <h3>Resistances: </h3>
+                <ul id="immunity-resistance">Immunity Resistance: </ul>
+                <ul id="robustness-resistance">Robustness Resistance: </ul>
+                <ul id="focus-resistance">Focus Resistance: </ul>
+                <ul id="vitality-resistance">Vitality Resistance: </ul>
+                <ul id="poise-resistance">Poise Resistance: </ul>
             </div>
         </div>
     </main>

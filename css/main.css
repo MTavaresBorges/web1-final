@@ -111,7 +111,7 @@ input {
     align-items: center;
 }
 
-.form-container{
+.container{
 	display: flex;
 	flex-direction: column;
     justify-content: center;

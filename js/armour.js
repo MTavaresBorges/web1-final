@@ -20,21 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('item-image').src = item.image;
                 document.getElementById('item-name').textContent = `Name: ${item.name}`;
                 document.getElementById('item-description').textContent = `Description: ${item.description}`;
-                document.getElementById('item-category').textContent = `Weapon Class: ${item.category}`;
+                document.getElementById('item-category').textContent = `Armour Class: ${item.category}`;
+                document.getElementById('item-weight').textContent = `Weight: ${item.weight}`;
+                
+                document.getElementById('physical-negation').textContent = `Physical Negation: ${item.dmgNegation[0].amount}`;
+                document.getElementById('strike-negation').textContent = `Strike Negation: ${item.dmgNegation[1].amount}`;
+                document.getElementById('slash-negation').textContent = `Slash Negation: ${item.dmgNegation[2].amount}`;
+                document.getElementById('pierce-negation').textContent = `Pierce Negation: ${item.dmgNegation[3].amount}`;
+                document.getElementById('magic-negation').textContent = `Magic Negation: ${item.dmgNegation[4].amount}`;
+                document.getElementById('fire-negation').textContent = `Fire Negation: ${item.dmgNegation[5].amount}`;
+                document.getElementById('lightning-negation').textContent = `Lightning Negation: ${item.dmgNegation[6].amount}`;
+                document.getElementById('holy-negation').textContent = `Holy Negation: ${item.dmgNegation[7].amount}`;
 
-                document.getElementById('physical-damage').textContent = `Physical Damage: ${item.attack[0].amount}`;
-                document.getElementById('magic-damage').textContent = `Magic Damage: ${item.attack[1].amount}`;
-                document.getElementById('fire-damage').textContent = `Fire Damage: ${item.attack[2].amount}`;
-                document.getElementById('lightning-damage').textContent = `Lightning Damage: ${item.attack[3].amount}`;
-                document.getElementById('holy-damage').textContent = `Holy Damage: ${item.attack[4].amount}`;
-                document.getElementById('critical-damage').textContent = `Critical Damage: ${item.attack[5].amount}`;
-
-                document.getElementById('physical-resistance').textContent = `Physical Resistance: ${item.defence[0].amount}`;
-                document.getElementById('magic-resistance').textContent = `Magic Resistance: ${item.defence[1].amount}`;
-                document.getElementById('fire-resistance').textContent = `Fire Resistance: ${item.defence[2].amount}`;
-                document.getElementById('lightning-resistance').textContent = `Lightning Resistance: ${item.defence[3].amount}`;
-                document.getElementById('holy-resistance').textContent = `Holy Resistance: ${item.defence[4].amount}`;
-                document.getElementById('boost').textContent = `Boost: ${item.defence[5].amount}`;
+                document.getElementById('immunity-resistance').textContent = `Immunity Resistence: ${item.resistance[0].amount}`;
+                document.getElementById('robustness-resistance').textContent = `Robustness Resistence: ${item.resistance[1].amount}`;
+                document.getElementById('focus-resistance').textContent = `Focus Resistence: ${item.resistance[2].amount}`;
+                document.getElementById('vitality-resistance').textContent = `Vitality Resistence: ${item.resistance[3].amount}`;
+                document.getElementById('poise-resistance').textContent = `Poise Resistence: ${item.resistance[4].amount}`;
 
                 itemCard.style.display = 'block';
             } else {
