@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body onload="loadBuilds()">
     <div id="navbar">
         <header>
             <nav>
@@ -27,7 +27,7 @@
             <h2>Create your own builds!</h2>
         </div>
         <div class="crud-form">
-            <form id="build-form" action="#" method="POST">
+            <form id="build-form" method="POST">
                 <div class="horizontal-container">
                     <fieldset class="field-set">
                         <div class="upper-column">
@@ -72,7 +72,7 @@
                                 <input type="text" id="talisman" placeholder="Talisman">
                             </div>
                         </div>
-                        <button type="submit" class="form-button">Search</button>
+                        <button type="submit" class="form-button" onclick="">Create Build</button>
                     </fieldset>
                 </div>
             </form>
