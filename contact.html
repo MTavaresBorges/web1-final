@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/main.css">
-    
 </head>
 <body>
     <div id="navbar">
@@ -24,7 +23,7 @@
         </header>
     </div>
     <main>
-        <h2 class="h2-out">Send a message to us!</h2>
+        <h2 class="h2-out">Have you found any issue?</h2>
         <div class="container">
             <div class="form">
                 <form id="item-form" action="" method="POST">
@@ -37,7 +36,7 @@
                         <label for="email">Email:</label>
                         <input type="text" id="email" placeholder="Email">
                         <label for="message">Message:</label>
-                        <textarea type="text" id="message" placeholder="Type your message..." cols="33" rows="5"></textarea>
+                        <textarea type="text" id="message" placeholder="Explain to us your issue..." cols="33" rows="5"></textarea>
                         <div class="upper-column">
                             <h3>Address: </h3>
                         </div>
@@ -55,8 +54,11 @@
                     <button type="submit" class="form-button">Submit</button>
                 </form>
             </div>
+            <h3>Tickets Sent</h3>
+            <div class="tickets-container"></div>
         </div>
     </main>
-</body>
     <script src="/js/address.js" type="module" defer></script>
+    <script src="/js/contact.js" type="module" defer></script>
+</body>
 </html>

@@ -232,6 +232,52 @@ input {
 	align-items: center
 }
 
+.tickets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ticket-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.ticket {
+    background-color: #1f1602;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    max-width: 400px;
+    width: 100%;
+    margin-right: 16px;
+}
+
+.update-form-container {
+    display: none;
+    background-color: #1f1602;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-button {
+    background-color: #96631d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-button:hover {
+    background-color: #ec971f;
+}
+
 #navbar{
     display: flex;
     flex-direction: row;
