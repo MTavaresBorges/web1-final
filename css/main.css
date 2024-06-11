@@ -21,6 +21,10 @@ h2{
     align-items: center;
 }
 
+span{
+	color:#ec971f;
+}
+
 a{
     color: #eff3f3;
     text-decoration: none;
