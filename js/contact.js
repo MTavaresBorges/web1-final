@@ -38,7 +38,6 @@ function addTicket({
     const updateButtonId = `update-ticket-${ticketIdCounter}`;
     const deleteButtonId = `delete-ticket-${ticketIdCounter}`;
 
-    // Create the new ticket element
     const ticketContainer = document.createElement('div');
     ticketContainer.classList.add('ticket-container');
     ticketContainer.innerHTML = `
@@ -77,15 +76,12 @@ function addTicket({
         </div>
     `;
 
-    // Append the new ticket to the tickets container
     const ticketsContainer = document.querySelector('.tickets-container');
     ticketsContainer.appendChild(ticketContainer);
 
-    // Attach event listeners to the buttons
     document.getElementById(updateButtonId).addEventListener('click', () => toggleUpdateForm(id));
     document.getElementById(deleteButtonId).addEventListener('click', () => deleteTicket(id));
 
-    // Attach event listener to the update form
     ticketContainer.querySelector('.update-form').addEventListener('submit', function(event) {
         event.preventDefault();
         saveUpdate(ticketIdCounter);
@@ -127,7 +123,6 @@ function saveUpdate(ticketIdCounter) {
         <button type="button" class="form-button" id="delete-ticket-${ticketIdCounter}">Delete Ticket</button>
     `;
     
-    // Re-attach event listeners to the buttons
     document.getElementById(`update-ticket-${ticketIdCounter}`).addEventListener('click', () => toggleUpdateForm(`ticket-${ticketIdCounter}`));
     document.getElementById(`delete-ticket-${ticketIdCounter}`).addEventListener('click', () => deleteTicket(`ticket-${ticketIdCounter}`));
 }

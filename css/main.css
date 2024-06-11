@@ -138,10 +138,10 @@ input {
 
 .form{
 	background-color: #1f1602;
-    padding: 20px;
+    padding: 50px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
 }
 
@@ -261,7 +261,7 @@ input {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
 }
 
@@ -276,6 +276,12 @@ input {
 
 .form-button:hover {
     background-color: #ec971f;
+}
+
+.eldenring-main{
+	width: 1400px;
+	height: 600px;
+	object-fit: cover;
 }
 
 #navbar{

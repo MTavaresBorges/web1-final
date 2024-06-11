@@ -1,14 +1,46 @@
 let buildIdCounter = 0;
 
+document.getElementById('build-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const buildName = document.getElementById('build-name').value;
+    const vigor = document.getElementById('vigor').value;
+    const mind = document.getElementById('mind').value;
+    const endurance = document.getElementById('endurance').value;
+    const strength = document.getElementById('strength').value;
+    const dexterity = document.getElementById('dexterity').value;
+    const intelligence = document.getElementById('intelligence').value;
+    const faith = document.getElementById('faith').value;
+    const arcane = document.getElementById('arcane').value;
+    const level = document.getElementById('level').value;
+    const mainWeapon = document.getElementById('main-weapon').value;
+    const headgear = document.getElementById('headgear').value;
+    const upperArmor = document.getElementById('upper-armor').value;
+    const arms = document.getElementById('arms').value;
+    const bottomArmor = document.getElementById('bottom-armor').value;
+    const talisman = document.getElementById('talisman').value;
+
+    addBuild({
+        buildName,
+        vigor,
+        mind,
+        endurance,
+        strength,
+        dexterity,
+        intelligence,
+        faith,
+        arcane,
+        level,
+        mainWeapon,
+        headgear,
+        upperArmor,
+        arms,
+        bottomArmor,
+        talisman
+    });
+});
+
 function addBuild({
     buildName,
-    level,
-    mainWeapon,
-    headgear,
-    upperArmor,
-    arms,
-    bottomArmor,
-    talisman,
     vigor,
     mind,
     endurance,
@@ -16,26 +48,25 @@ function addBuild({
     dexterity,
     intelligence,
     faith,
-    arcane
+    arcane,
+    level,
+    mainWeapon,
+    headgear,
+    upperArmor,
+    arms,
+    bottomArmor,
+    talisman
 }) {
     buildIdCounter++;
     const id = `build-${buildIdCounter}`;
-    const updateButtonId = `update-${buildIdCounter}`;
-    const deleteButtonId = `delete-${buildIdCounter}`;
+    const updateButtonId = `update-build-${buildIdCounter}`;
+    const deleteButtonId = `delete-build-${buildIdCounter}`;
 
-    // Create the new build card element
-    const buildCard = document.createElement('div');
-    buildCard.classList.add('form');
-    buildCard.innerHTML = `
-        <div class="build-card" id="${id}">
-            <h3>Build Name: ${buildName}</h3>
-            <p>Level: ${level}</p>
-            <p>Main Weapon: ${mainWeapon}</p>
-            <p>Headgear: ${headgear}</p>
-            <p>Upper Armor: ${upperArmor}</p>
-            <p>Arms: ${arms}</p>
-            <p>Bottom Armor: ${bottomArmor}</p>
-            <p>Talisman: ${talisman}</p>
+    const buildContainer = document.createElement('div');
+    buildContainer.classList.add('ticket-container');
+    buildContainer.innerHTML = `
+        <div class="ticket" id="${id}">
+            <h3>${buildName}</h3>
             <p>Vigor: ${vigor}</p>
             <p>Mind: ${mind}</p>
             <p>Endurance: ${endurance}</p>
@@ -44,143 +75,126 @@ function addBuild({
             <p>Intelligence: ${intelligence}</p>
             <p>Faith: ${faith}</p>
             <p>Arcane: ${arcane}</p>
+            <p>Level: ${level}</p>
+            <p>Main Weapon: ${mainWeapon}</p>
+            <p>Headgear: ${headgear}</p>
+            <p>Upper Armor: ${upperArmor}</p>
+            <p>Arms: ${arms}</p>
+            <p>Bottom Armor: ${bottomArmor}</p>
+            <p>Talisman: ${talisman}</p>
             <button type="button" class="form-button" id="${updateButtonId}">Update Build</button>
             <button type="button" class="form-button" id="${deleteButtonId}">Delete Build</button>
-            <div class="update-form-container" style="display: none;">
-                <form class="update-form">
-                    <label for="update-build-name-${buildIdCounter}">Build Name:</label>
-                    <input type="text" id="update-build-name-${buildIdCounter}" value="${buildName}">
-                    <label for="update-level-${buildIdCounter}">Level:</label>
-                    <input type="number" id="update-level-${buildIdCounter}" value="${level}">
-                    <label for="update-main-weapon-${buildIdCounter}">Main Weapon:</label>
-                    <input type="text" id="update-main-weapon-${buildIdCounter}" value="${mainWeapon}">
-                    <label for="update-headgear-${buildIdCounter}">Headgear:</label>
-                    <input type="text" id="update-headgear-${buildIdCounter}" value="${headgear}">
-                    <label for="update-upper-armor-${buildIdCounter}">Upper Armor:</label>
-                    <input type="text" id="update-upper-armor-${buildIdCounter}" value="${upperArmor}">
-                    <label for="update-arms-${buildIdCounter}">Arms:</label>
-                    <input type="text" id="update-arms-${buildIdCounter}" value="${arms}">
-                    <label for="update-bottom-armor-${buildIdCounter}">Bottom Armor:</label>
-                    <input type="text" id="update-bottom-armor-${buildIdCounter}" value="${bottomArmor}">
-                    <label for="update-talisman-${buildIdCounter}">Talisman:</label>
-                    <input type="text" id="update-talisman-${buildIdCounter}" value="${talisman}">
-                    <label for="update-vigor-${buildIdCounter}">Vigor:</label>
-                    <input type="number" id="update-vigor-${buildIdCounter}" value="${vigor}">
-                    <label for="update-mind-${buildIdCounter}">Mind:</label>
-                    <input type="number" id="update-mind-${buildIdCounter}" value="${mind}">
-                    <label for="update-endurance-${buildIdCounter}">Endurance:</label>
-                    <input type="number" id="update-endurance-${buildIdCounter}" value="${endurance}">
-                    <label for="update-strength-${buildIdCounter}">Strength:</label>
-                    <input type="number" id="update-strength-${buildIdCounter}" value="${strength}">
-                    <label for="update-dexterity-${buildIdCounter}">Dexterity:</label>
-                    <input type="number" id="update-dexterity-${buildIdCounter}" value="${dexterity}">
-                    <label for="update-intelligence-${buildIdCounter}">Intelligence:</label>
-                    <input type="number" id="update-intelligence-${buildIdCounter}" value="${intelligence}">
-                    <label for="update-faith-${buildIdCounter}">Faith:</label>
-                    <input type="number" id="update-faith-${buildIdCounter}" value="${faith}">
-                    <label for="update-arcane-${buildIdCounter}">Arcane:</label>
-                    <input type="number" id="update-arcane-${buildIdCounter}" value="${arcane}">
-                    <button type="submit" class="form-button">Save</button>
-                </form>
-            </div>
+        </div>
+        <div class="update-form-container">
+            <form class="update-form">
+                <div class="bottom-column">
+                    <div class="column">
+                        <label for="update-build-name-${buildIdCounter}">Build Name:</label>
+                        <input type="text" id="update-build-name-${buildIdCounter}" value="${buildName}">
+                        <label for="update-vigor-${buildIdCounter}">Vigor:</label>
+                        <input type="number" id="update-vigor-${buildIdCounter}" value="${vigor}">
+                        <label for="update-mind-${buildIdCounter}">Mind:</label>
+                        <input type="number" id="update-mind-${buildIdCounter}" value="${mind}">
+                        <label for="update-endurance-${buildIdCounter}">Endurance:</label>
+                        <input type="number" id="update-endurance-${buildIdCounter}" value="${endurance}">
+                        <label for="update-strength-${buildIdCounter}">Strength:</label>
+                        <input type="number" id="update-strength-${buildIdCounter}" value="${strength}">
+                        <label for="update-dexterity-${buildIdCounter}">Dexterity:</label>
+                        <input type="number" id="update-dexterity-${buildIdCounter}" value="${dexterity}">
+                        <label for="update-intelligence-${buildIdCounter}">Intelligence:</label>
+                        <input type="number" id="update-intelligence-${buildIdCounter}" value="${intelligence}">
+                    </div>
+                    <div class="column">
+                        <label for="update-faith-${buildIdCounter}">Faith:</label>
+                        <input type="number" id="update-faith-${buildIdCounter}" value="${faith}">
+                        <label for="update-arcane-${buildIdCounter}">Arcane:</label>
+                        <input type="number" id="update-arcane-${buildIdCounter}" value="${arcane}">
+                        <label for="update-level-${buildIdCounter}">Level:</label>
+                        <input type="number" id="update-level-${buildIdCounter}" value="${level}">
+                        <label for="update-main-weapon-${buildIdCounter}">Main Weapon:</label>
+                        <input type="text" id="update-main-weapon-${buildIdCounter}" value="${mainWeapon}">
+                        <label for="update-headgear-${buildIdCounter}">Headgear:</label>
+                        <input type="text" id="update-headgear-${buildIdCounter}" value="${headgear}">
+                        <label for="update-upper-armor-${buildIdCounter}">Upper Armor:</label>
+                        <input type="text" id="update-upper-armor-${buildIdCounter}" value="${upperArmor}">
+                        <label for="update-arms-${buildIdCounter}">Arms:</label>
+                        <input type="text" id="update-arms-${buildIdCounter}" value="${arms}">
+                    </div>
+                    <div class="column">
+                        <label for="update-bottom-armor-${buildIdCounter}">Bottom Armor:</label>
+                        <input type="text" id="update-bottom-armor-${buildIdCounter}" value="${bottomArmor}">
+                        <label for="update-talisman-${buildIdCounter}">Talisman:</label>
+                        <input type="text" id="update-talisman-${buildIdCounter}" value="${talisman}">
+                        <button type="submit" class="form-button">Save</button>
+                    </div>
+                </div>
+            </form>
         </div>
     `;
 
-    // Append the new build card to the main element
-    const main = document.querySelector('body > main');
-    main.appendChild(buildCard);
+    const buildsContainer = document.querySelector('.builds-container');
+    buildsContainer.appendChild(buildContainer);
 
-    // Attach event listeners to the buttons
     document.getElementById(updateButtonId).addEventListener('click', () => toggleUpdateForm(id));
     document.getElementById(deleteButtonId).addEventListener('click', () => deleteBuild(id));
 
-    // Attach event listener to the update form
-    buildCard.querySelector('.update-form').addEventListener('submit', function(event) {
+    buildContainer.querySelector('.update-form').addEventListener('submit', function(event) {
         event.preventDefault();
         saveUpdate(buildIdCounter);
     });
 }
 
 function toggleUpdateForm(buildId) {
-    const buildCard = document.getElementById(buildId);
-    const updateFormContainer = buildCard.querySelector('.update-form-container');
+    const buildContainer = document.getElementById(buildId).parentElement;
+    const updateFormContainer = buildContainer.querySelector('.update-form-container');
     updateFormContainer.style.display = updateFormContainer.style.display === 'none' ? 'block' : 'none';
 }
 
-function saveUpdate(buildId) {
-    const buildCard = document.getElementById(`build-${buildId}`);
-    const buildData = {
-        buildName: buildCard.querySelector(`#update-build-name-${buildId}`).value,
-        level: buildCard.querySelector(`#update-level-${buildId}`).value,
-        mainWeapon: buildCard.querySelector(`#update-main-weapon-${buildId}`).value,
-        headgear: buildCard.querySelector(`#update-headgear-${buildId}`).value,
-        upperArmor: buildCard.querySelector(`#update-upper-armor-${buildId}`).value,
-        arms: buildCard.querySelector(`#update-arms-${buildId}`).value,
-        bottomArmor: buildCard.querySelector(`#update-bottom-armor-${buildId}`).value,
-        talisman: buildCard.querySelector(`#update-talisman-${buildId}`).value,
-        vigor: buildCard.querySelector(`#update-vigor-${buildId}`).value,
-        mind: buildCard.querySelector(`#update-mind-${buildId}`).value,
-        endurance: buildCard.querySelector(`#update-endurance-${buildId}`).value,
-        strength: buildCard.querySelector(`#update-strength-${buildId}`).value,
-        dexterity: buildCard.querySelector(`#update-dexterity-${buildId}`).value,
-        intelligence: buildCard.querySelector(`#update-intelligence-${buildId}`).value,
-        faith: buildCard.querySelector(`#update-faith-${buildId}`).value,
-        arcane: buildCard.querySelector(`#update-arcane-${buildId}`).value
-    };
-
-    // Update the build card with the new data
-    buildCard.querySelector('h3').innerText = `Build Name: ${buildData.buildName}`;
-    buildCard.querySelector('p:nth-of-type(1)').innerText = `Level: ${buildData.level}`;
-    buildCard.querySelector('p:nth-of-type(2)').innerText = `Main Weapon: ${buildData.mainWeapon}`;
-    buildCard.querySelector('p:nth-of-type(3)').innerText = `Headgear: ${buildData.headgear}`;
-    buildCard.querySelector('p:nth-of-type(4)').innerText = `Upper Armor: ${buildData.upperArmor}`;
-    buildCard.querySelector('p:nth-of-type(5)').innerText = `Arms: ${buildData.arms}`;
-    buildCard.querySelector('p:nth-of-type(6)').innerText = `Bottom Armor: ${buildData.bottomArmor}`;
-    buildCard.querySelector('p:nth-of-type(7)').innerText = `Talisman: ${buildData.talisman}`;
-    buildCard.querySelector('p:nth-of-type(8)').innerText = `Vigor: ${buildData.vigor}`;
-    buildCard.querySelector('p:nth-of-type(9)').innerText = `Mind: ${buildData.mind}`;
-    buildCard.querySelector('p:nth-of-type(10)').innerText = `Endurance: ${buildData.endurance}`;
-    buildCard.querySelector('p:nth-of-type(11)').innerText = `Strength: ${buildData.strength}`;
-    buildCard.querySelector('p:nth-of-type(12)').innerText = `Dexterity: ${buildData.dexterity}`;
-    buildCard.querySelector('p:nth-of-type(13)').innerText = `Intelligence: ${buildData.intelligence}`;
-    buildCard.querySelector('p:nth-of-type(14)').innerText = `Faith: ${buildData.faith}`;
-    buildCard.querySelector('p:nth-of-type(15)').innerText = `Arcane: ${buildData.arcane}`;
-
-    // Hide the update form
-    toggleUpdateForm(`build-${buildId}`);
-}
-
 function deleteBuild(buildId) {
-    const buildCard = document.getElementById(buildId);
-    buildCard.remove();
+    const build = document.getElementById(buildId);
+    build.parentElement.remove();
 }
 
-document.getElementById('build-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting
+function saveUpdate(buildIdCounter) {
+    const buildName = document.getElementById(`update-build-name-${buildIdCounter}`).value;
+    const vigor = document.getElementById(`update-vigor-${buildIdCounter}`).value;
+    const mind = document.getElementById(`update-mind-${buildIdCounter}`).value;
+    const endurance = document.getElementById(`update-endurance-${buildIdCounter}`).value;
+    const strength = document.getElementById(`update-strength-${buildIdCounter}`).value;
+    const dexterity = document.getElementById(`update-dexterity-${buildIdCounter}`).value;
+    const intelligence = document.getElementById(`update-intelligence-${buildIdCounter}`).value;
+    const faith = document.getElementById(`update-faith-${buildIdCounter}`).value;
+    const arcane = document.getElementById(`update-arcane-${buildIdCounter}`).value;
+    const level = document.getElementById(`update-level-${buildIdCounter}`).value;
+    const mainWeapon = document.getElementById(`update-main-weapon-${buildIdCounter}`).value;
+    const headgear = document.getElementById(`update-headgear-${buildIdCounter}`).value;
+    const upperArmor = document.getElementById(`update-upper-armor-${buildIdCounter}`).value;
+    const arms = document.getElementById(`update-arms-${buildIdCounter}`).value;
+    const bottomArmor = document.getElementById(`update-bottom-armor-${buildIdCounter}`).value;
+    const talisman = document.getElementById(`update-talisman-${buildIdCounter}`).value;
 
-    // Gather form data
-    const buildData = {
-        buildName: document.getElementById('build-name').value,
-        level: document.getElementById('level').value,
-        mainWeapon: document.getElementById('main-weapon').value,
-        headgear: document.getElementById('headgear').value,
-        upperArmor: document.getElementById('upper-armor').value,
-        arms: document.getElementById('arms').value,
-        bottomArmor: document.getElementById('bottom-armor').value,
-        talisman: document.getElementById('talisman').value,
-        vigor: document.getElementById('vigor').value,
-        mind: document.getElementById('mind').value,
-        endurance: document.getElementById('endurance').value,
-        strength: document.getElementById('strength').value,
-        dexterity: document.getElementById('dexterity').value,
-        intelligence: document.getElementById('intelligence').value,
-        faith: document.getElementById('faith').value,
-        arcane: document.getElementById('arcane').value
-    };
+    const build = document.getElementById(`build-${buildIdCounter}`);
+    build.innerHTML = `
+        <h3>${buildName}</h3>
+        <p>Vigor: ${vigor}</p>
+        <p>Mind: ${mind}</p>
+        <p>Endurance: ${endurance}</p>
+        <p>Strength: ${strength}</p>
+        <p>Dexterity: ${dexterity}</p>
+        <p>Intelligence: ${intelligence}</p>
+        <p>Faith: ${faith}</p>
+        <p>Arcane: ${arcane}</p>
+        <p>Level: ${level}</p>
+        <p>Main Weapon: ${mainWeapon}</p>
+        <p>Headgear: ${headgear}</p>
+        <p>Upper Armor: ${upperArmor}</p>
+        <p>Arms: ${arms}</p>
+        <p>Bottom Armor: ${bottomArmor}</p>
+        <p>Talisman: ${talisman}</p>
+        <button type="button" class="form-button" id="update-build-${buildIdCounter}">Update Build</button>
+        <button type="button" class="form-button" id="delete-build-${buildIdCounter}">Delete Build</button>
+    `;
 
-    // Add the new build card
-    addBuild(buildData);
-
-    // Reset the form
-    document.getElementById('build-form').reset();
-});
+    document.getElementById(`update-build-${buildIdCounter}`).addEventListener('click', () => toggleUpdateForm(`build-${buildIdCounter}`));
+    document.getElementById(`delete-build-${buildIdCounter}`).addEventListener('click', () => deleteBuild(`build-${buildIdCounter}`));
+}
