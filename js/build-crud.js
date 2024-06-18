@@ -36,7 +36,7 @@ document.getElementById('build-form').addEventListener('submit', function(event)
         arms,
         bottomArmor,
         talisman
-    });
+    }, buildIdCounter);
 });
 
 function addBuild({
@@ -56,13 +56,12 @@ function addBuild({
     arms,
     bottomArmor,
     talisman
-}) {
-    buildIdCounter++;
-    const id = `build-${buildIdCounter}`;
-    const updateButtonId = `update-build-${buildIdCounter}`;
-    const deleteButtonId = `delete-build-${buildIdCounter}`;
-
+}, id) {
+    // buildIdCounter++;
+    const updateButtonId = `update-build-${id}`;
+    const deleteButtonId = `delete-build-${id}`;
     const buildContainer = document.createElement('div');
+
     buildContainer.classList.add('ticket-container');
     buildContainer.innerHTML = `
         <div class="ticket" id="${id}">
@@ -140,7 +139,7 @@ function addBuild({
 
     buildContainer.querySelector('.update-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        saveUpdate(buildIdCounter);
+        saveUpdate(id);
     });
 }
 
@@ -155,25 +154,25 @@ function deleteBuild(buildId) {
     build.parentElement.remove();
 }
 
-function saveUpdate(buildIdCounter) {
-    const buildName = document.getElementById(`update-build-name-${buildIdCounter}`).value;
-    const vigor = document.getElementById(`update-vigor-${buildIdCounter}`).value;
-    const mind = document.getElementById(`update-mind-${buildIdCounter}`).value;
-    const endurance = document.getElementById(`update-endurance-${buildIdCounter}`).value;
-    const strength = document.getElementById(`update-strength-${buildIdCounter}`).value;
-    const dexterity = document.getElementById(`update-dexterity-${buildIdCounter}`).value;
-    const intelligence = document.getElementById(`update-intelligence-${buildIdCounter}`).value;
-    const faith = document.getElementById(`update-faith-${buildIdCounter}`).value;
-    const arcane = document.getElementById(`update-arcane-${buildIdCounter}`).value;
-    const level = document.getElementById(`update-level-${buildIdCounter}`).value;
-    const mainWeapon = document.getElementById(`update-main-weapon-${buildIdCounter}`).value;
-    const headgear = document.getElementById(`update-headgear-${buildIdCounter}`).value;
-    const upperArmor = document.getElementById(`update-upper-armor-${buildIdCounter}`).value;
-    const arms = document.getElementById(`update-arms-${buildIdCounter}`).value;
-    const bottomArmor = document.getElementById(`update-bottom-armor-${buildIdCounter}`).value;
-    const talisman = document.getElementById(`update-talisman-${buildIdCounter}`).value;
+function saveUpdate(buildId) {
+    const buildName = document.getElementById(`update-build-name-${buildId}`).value;
+    const vigor = document.getElementById(`update-vigor-${buildId}`).value;
+    const mind = document.getElementById(`update-mind-${buildId}`).value;
+    const endurance = document.getElementById(`update-endurance-${buildId}`).value;
+    const strength = document.getElementById(`update-strength-${buildId}`).value;
+    const dexterity = document.getElementById(`update-dexterity-${buildId}`).value;
+    const intelligence = document.getElementById(`update-intelligence-${buildId}`).value;
+    const faith = document.getElementById(`update-faith-${buildId}`).value;
+    const arcane = document.getElementById(`update-arcane-${buildId}`).value;
+    const level = document.getElementById(`update-level-${buildId}`).value;
+    const mainWeapon = document.getElementById(`update-main-weapon-${buildId}`).value;
+    const headgear = document.getElementById(`update-headgear-${buildId}`).value;
+    const upperArmor = document.getElementById(`update-upper-armor-${buildId}`).value;
+    const arms = document.getElementById(`update-arms-${buildId}`).value;
+    const bottomArmor = document.getElementById(`update-bottom-armor-${buildId}`).value;
+    const talisman = document.getElementById(`update-talisman-${buildId}`).value;
 
-    const build = document.getElementById(`build-${buildIdCounter}`);
+    const build = document.getElementById(`build-${buildId}`);
     build.innerHTML = `
         <h3>${buildName}</h3>
         <p>Vigor: ${vigor}</p>
@@ -191,10 +190,10 @@ function saveUpdate(buildIdCounter) {
         <p>Arms: ${arms}</p>
         <p>Bottom Armor: ${bottomArmor}</p>
         <p>Talisman: ${talisman}</p>
-        <button type="button" class="form-button" id="update-build-${buildIdCounter}">Update Build</button>
-        <button type="button" class="form-button" id="delete-build-${buildIdCounter}">Delete Build</button>
+        <button type="button" class="form-button" id="update-build-${buildId}">Update Build</button>
+        <button type="button" class="form-button" id="delete-build-${buildId}">Delete Build</button>
     `;
 
-    document.getElementById(`update-build-${buildIdCounter}`).addEventListener('click', () => toggleUpdateForm(`build-${buildIdCounter}`));
-    document.getElementById(`delete-build-${buildIdCounter}`).addEventListener('click', () => deleteBuild(`build-${buildIdCounter}`));
+    updateButton.addEventListener('click', () => toggleUpdateForm(`build-${buildId}`));
+    deleteButton.addEventListener('click', () => deleteBuild(`build-${buildId}`));
 }
