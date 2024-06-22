@@ -84,7 +84,6 @@ function addBuild({
             <p>Talisman: ${talisman}</p>
             <button type="button" class="form-button" id="${updateButtonId}">Update Build</button>
             <button type="button" class="form-button" id="${deleteButtonId}">Delete Build</button>
-            
         </div>
         <div class="update-form-container" style="display: none;">
             <form class="update-form">
@@ -131,7 +130,6 @@ function addBuild({
                 </div>
             </form>
         </div>
-        <br>
     `;
 
     const buildsContainer = document.querySelector('.builds-container');
